@@ -5,35 +5,26 @@ from .models import Place
 
 
 def index(request):
+    places = Place.objects.all()
+    places_description = []
+    for place in places:
+        places_description.append({
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [place.longitude, place.latitude]
+            },
+            "properties": {
+                "title": place.title,
+                "placeId": place.id,
+                "detailsUrl": "./static/places/moscow_legends.json"
+            }
+            }
+        )
     context = {
         "places": {
             "type": "FeatureCollection",
-            "features": [
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [37.62, 55.793676]
-                    },
-                    "properties": {
-                        "title": "«Легенды Москвы",
-                        "placeId": "moscow_legends",
-                        "detailsUrl": "./static/places/moscow_legends.json"
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [37.64, 55.753676]
-                    },
-                    "properties": {
-                        "title": "Крыши24.рф",
-                        "placeId": "roofs24",
-                        "detailsUrl": "./static/places/roofs24.json"
-                    }
-                }
-            ]
+            "features": places_description
         }
     }
     return render(request, 'index.html', context)
