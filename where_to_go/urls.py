@@ -19,10 +19,11 @@ from django.shortcuts import render
 from django.conf import settings
 from django.conf.urls.static import static
 
-from places.views import index
+from places.views import index, place_detail_show
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
+    path('places/<int:place_id>/', place_detail_show)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
