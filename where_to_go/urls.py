@@ -19,13 +19,10 @@ from django.shortcuts import render
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-
-def show_map(request):
-    return render(request, 'index.html')
+from places.views import index
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', show_map),
+    path('', index),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
