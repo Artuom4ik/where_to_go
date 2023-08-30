@@ -25,5 +25,5 @@ from places.views import index, place_detail_show
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('places/<int:place_id>/', place_detail_show)
+    path('places/<int:place_id>/', place_detail_show, name='place_description')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
