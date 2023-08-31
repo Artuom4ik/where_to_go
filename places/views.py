@@ -9,25 +9,23 @@ from django.urls import reverse
 
 def index(request):
     places = Place.objects.all()
-    places_description = []
-    for place in places:
-        places_description.append({
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [place.longitude, place.latitude]
-            },
-            "properties": {
-                "title": place.title,
-                "placeId": place.id,
-                "detailsUrl": reverse('place_description', args=[place.id])
-            }
-            }
-        )
     context = {
         "places": {
             "type": "FeatureCollection",
-            "features": places_description
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [place.longitude, place.latitude]
+                    },
+                    "properties": {
+                        "title": place.title,
+                        "placeId": place.id,
+                        "detailsUrl": reverse('place_description', args=[place.id])
+                    }
+                } for place in places
+            ]
         }
     }
     return render(request, 'index.html', context)
