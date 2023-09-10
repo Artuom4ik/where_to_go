@@ -6,11 +6,11 @@ ___
 #### Данная программа запускает [сайт](http://artem228gkrut.pythonanywhere.com/) с популярными местами на карте Москвы.
 ___
 ### Содержание:
-* [Запуск](https://github.com/Artuom4ik/parsing_online_library#%D0%BA%D0%B0%D0%BA-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%D1%81%D1%8F-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%BC)
-* [Переменные окружения]()
-* [Как добавить свои места]()
+* [Запуск](https://github.com/Artuom4ik/where_to_go#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA)
+* [Переменные окружения](https://github.com/Artuom4ik/where_to_go#%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F)
+* [Как добавить свои места](https://github.com/Artuom4ik/where_to_go#%D0%BA%D0%B0%D0%BA-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%B2%D0%BE%D0%B8-%D0%BC%D0%B5%D1%81%D1%82%D0%B0)
 * [Пример рабочего сайта]()
-* [Цель проекта](https://github.com/Artuom4ik/parsing_online_library#%D1%86%D0%B5%D0%BB%D1%8C-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
+* [Цель проекта](https://github.com/Artuom4ik/where_to_go#%D1%86%D0%B5%D0%BB%D1%8C-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
 ___
 ### Запуск
 
@@ -50,13 +50,23 @@ python manage.py createsuperuser
 
 * После того, как вы успешно создали пользователя, перейдите в админ панель и введите ранее заполненые данные когда вы создавали пользователя. [Сыллка](http://127.0.0.1:8000/admin/) на админ панель.
 
+![пример2](picture/Пример2.png)
+
 * Как только вы попадёте в админ панель, перейдите во вкладку `Places`. 
+
+![pic6](picture/Пример6.png)
 
 * Вы увидите список уже раннее добавленных мест. Нажмите на кнопку `add place`.
 
+![pic3](picture/Пример3.png)
+
 * Далее у вас откроется редактор в котором вы сможете добавить своё место.
 
+![pic4](picture/Пример4.png)
+
 * Для сохранения нажмите кнопку `save`, она находится в самом низу страницы.
+
+![pic5](picture/Пример5.png)
 
 ##### Добавление через консоль
 
@@ -72,8 +82,13 @@ python manage.py createsuperuser
 python manage.py load_place http://адрес/файла.json
 ```
 
-* Далее в БД добавиться ваше место.
+* Далее в `БД` добавиться ваше место.
 
+___
+### Пример рабочего сайта
+![pic7](picture/Пример7.png)
+
+![pic8](picture/Пример8.png)
 ___
 ### Цель проекта:
 * Код написан в образовательных целях.
