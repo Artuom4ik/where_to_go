@@ -14,10 +14,20 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('--path', '-p')
         parser.add_argument('--json_url', '-url')
+        parser.add_argument('--urls_path', '-urls')
 
     def handle(self, *args, **options):
         if options['path'] or options['json_url']:
             self.load_place(options['path'], options['json_url'])
+        else:
+            self.load_places(options['urls_path'])
+
+    def load_places(self, urls_path):
+        with open(urls_path, 'r', encoding='UTF8') as file:
+            json_urls = json.load(file)
+
+        for json_url in json_urls['places']:
+            self.load_place(path=False, json_url=json_url)
 
     def load_place(self, path, json_url):
         if path:
