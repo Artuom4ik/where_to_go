@@ -94,7 +94,7 @@ python manage.py load_place --json_url http://адрес/файла.json
 python manage.py load_place --urls_path 'Путь до файла'
 ```
 
-- Файл должен со списком ссылок на json файл, должен быть такого формата:
+- Файл со списком ссылок на json файл, должен быть такого формата:
 
     ![pic9](picture/Пример9.png)
 
