@@ -40,8 +40,8 @@ class Command(BaseCommand):
 
         place, create = Place.objects.update_or_create(
             title=place_file['title'],
-            description_short=place_file['description_short'],
-            description_long=place_file['description_long'],
+            short_description=place_file['description_short'],
+            long_description=place_file['description_long'],
             latitude = place_file['coordinates']['lat'],
             longitude = place_file['coordinates']['lng']
         )
