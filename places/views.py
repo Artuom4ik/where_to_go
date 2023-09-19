@@ -31,19 +31,11 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def get_images(place):
-    images = place.images.all()
-    images_url = []
-    for image in images:
-        images_url.append(image.image.url)
-    return images_url
-
-
 def place_detail_show(request, place_id):
-    place = get_object_or_404(Place, id=place_id)
+    place = get_object_or_404(Place.objects.prefetch_related('images'), id=place_id)
     place_description = {
         "title": place.title,
-        "imgs": get_images(place),
+        "imgs": [image.image.url for image in place.images.all()],
         "description_short": place.short_description,
         "description_long": place.long_description,
         "coordinates": {
