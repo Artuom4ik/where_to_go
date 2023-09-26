@@ -20,3 +20,8 @@ class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
     inlines = [
         ImageInline,
     ]
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    list_filter = ('place',)
